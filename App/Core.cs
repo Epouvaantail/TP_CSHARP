@@ -4,7 +4,7 @@ using Classes;
 
 namespace App {
     class Core {
-
+        // creation of a list of Vehicule, initialized when you run the app, when the app stop running the list is delete
         static List<Vehicule> listVehicules = new List<Vehicule>() {};
 
         public static void Create() {
@@ -162,7 +162,7 @@ namespace App {
                     var FileName = Console.ReadLine();
                     var fileContent = File.ReadAllText(FileName!);
                     var liste = JsonSerializer.Deserialize<Vehicule>(fileContent);
-                    // listVehicules = liste;
+                    // listVehicules = liste; !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                     break;
             }
         }

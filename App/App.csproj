@@ -11,4 +11,8 @@
     <ProjectReference Include="../Classes/Classes.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="../TestApp/TestApp.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -2,16 +2,10 @@ namespace Classes.Exceptions
 {
     public class InvalidNumeroException : Exception
     {
-        public InvalidNumeroException(string message)
-            : base(message)
-        {
-        }
-        public InvalidNumeroException()
-            : base()
-        {
+        public InvalidNumeroException(string message): base(message){
         }
 
-        public override string Message      //Redéfinition de la propriété Message
+        public override string Message
         {
             get
             {

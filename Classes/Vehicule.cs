@@ -10,6 +10,7 @@ namespace Classes {
         public string _marque {
             get { return Marque; }
             set {
+                // check if there is a digit in the Marque
                 for (int i=0; i< value.Length; i++) {
                     if (Char.IsDigit(value[i])) {
                     throw new InvalidMarqueException("Marque Invalide");
@@ -24,10 +25,10 @@ namespace Classes {
         public int _numero {
             get { return Numero; }
             set {
-                if (value.ToString().Length >= 4 && value.ToString().Length <= 6) {
+                // check if the value length is in between 4 and 6 number and if its a number
+                if (value.ToString().Length >= 4 && value.ToString().Length <= 6 && value.GetType() == typeof(int)) {
                     Numero = value;
                 }
-
                 else {
                     throw new InvalidNumeroException("Longueur Numero Invalide");
                 }

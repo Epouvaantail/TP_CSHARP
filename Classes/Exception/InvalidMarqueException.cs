@@ -2,16 +2,10 @@ namespace Classes.Exceptions
 {
     public class InvalidMarqueException : Exception
     {
-        public InvalidMarqueException(string message)
-            : base(message)
-        {
-        }
-        public InvalidMarqueException()
-            : base()
-        {
+        public InvalidMarqueException(string message): base(message){
         }
 
-        public override string Message      //Redéfinition de la propriété Message
+        public override string Message
         {
             get
             {
