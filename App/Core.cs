@@ -74,11 +74,30 @@ namespace App {
         }
 
         public static void UpdateVehicule() {
-            // Newvehicule.Marque("Volvo");
+            Console.WriteLine("Numero du vehicule à supprimer");
+            var choix = int.Parse(Console.ReadLine()!);
+            var updateVehicule = listVehicules.Find(v => v._numero == choix);
+            if (updateVehicule != null) {
+                Console.WriteLine("Entrez le nouveau modele");
+                updateVehicule.Modele = Console.ReadLine()!;
+            Console.WriteLine("Véhicule mis à jour : " + updateVehicule);
+            }
+            else {
+                Console.WriteLine("Aucun véhicule trouvé avec ce numéro.");
+            }
         }
 
         public static void DeleteVehicule() {
-            // listVehicule.Remove(newVehicule);
+            Console.WriteLine("Numero du vehicule à supprimer");
+            var choix = int.Parse(Console.ReadLine()!);
+            var deleteVehicule = listVehicules.Find(v => v._numero == choix);
+            if (deleteVehicule != null) {
+                listVehicules.Remove(deleteVehicule);
+                Console.WriteLine("Véhicule supprimé.");
+            }
+            else {
+                Console.WriteLine("Aucun véhicule trouvé avec ce numéro.");
+            }
         }
 
         public static void SortVehicule() {
@@ -143,6 +162,7 @@ namespace App {
                     var FileName = Console.ReadLine();
                     var fileContent = File.ReadAllText(FileName!);
                     var liste = JsonSerializer.Deserialize<Vehicule>(fileContent);
+                    // listVehicules = liste;
                     break;
             }
         }

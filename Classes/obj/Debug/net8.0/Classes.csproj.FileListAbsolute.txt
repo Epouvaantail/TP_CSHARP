@@ -9,3 +9,4 @@ D:\Documents\Diginamic\TP\TP_CSHARP\Classes\obj\Debug\net8.0\Classes.dll
 D:\Documents\Diginamic\TP\TP_CSHARP\Classes\obj\Debug\net8.0\refint\Classes.dll
 D:\Documents\Diginamic\TP\TP_CSHARP\Classes\obj\Debug\net8.0\Classes.pdb
 D:\Documents\Diginamic\TP\TP_CSHARP\Classes\obj\Debug\net8.0\ref\Classes.dll
+D:\Documents\Diginamic\TP\TP_CSHARP\Classes\obj\Debug\net8.0\Classes.sourcelink.json
