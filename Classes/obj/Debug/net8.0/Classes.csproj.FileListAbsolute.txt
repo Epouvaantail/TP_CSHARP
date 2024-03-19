@@ -1,0 +1,11 @@
+D:\Documents\Diginamic\TP\TP_CSHARP\Classes\bin\Debug\net8.0\Classes.deps.json
+D:\Documents\Diginamic\TP\TP_CSHARP\Classes\bin\Debug\net8.0\Classes.dll
+D:\Documents\Diginamic\TP\TP_CSHARP\Classes\bin\Debug\net8.0\Classes.pdb
+D:\Documents\Diginamic\TP\TP_CSHARP\Classes\obj\Debug\net8.0\Classes.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documents\Diginamic\TP\TP_CSHARP\Classes\obj\Debug\net8.0\Classes.AssemblyInfoInputs.cache
+D:\Documents\Diginamic\TP\TP_CSHARP\Classes\obj\Debug\net8.0\Classes.AssemblyInfo.cs
+D:\Documents\Diginamic\TP\TP_CSHARP\Classes\obj\Debug\net8.0\Classes.csproj.CoreCompileInputs.cache
+D:\Documents\Diginamic\TP\TP_CSHARP\Classes\obj\Debug\net8.0\Classes.dll
+D:\Documents\Diginamic\TP\TP_CSHARP\Classes\obj\Debug\net8.0\refint\Classes.dll
+D:\Documents\Diginamic\TP\TP_CSHARP\Classes\obj\Debug\net8.0\Classes.pdb
+D:\Documents\Diginamic\TP\TP_CSHARP\Classes\obj\Debug\net8.0\ref\Classes.dll
