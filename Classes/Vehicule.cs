@@ -21,7 +21,6 @@ namespace Classes {
                 }
             }
         }
-        
 
         public int numero {
             get { return Numero; }
