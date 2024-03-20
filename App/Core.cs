@@ -1,18 +1,19 @@
 
+using System.Runtime.Serialization.Json;
 using System.Text.Json;
 using Classes;
 
 namespace App {
     class Core {
-        // creation of a list of Vehicule, initialized when you run the app, when the app stop running the list is delete
+        // creation of a list of Vehicule, initialized when you run the app, when the app stop running the list is delete.
         static List<Vehicule> listVehicules = new List<Vehicule>() {};
 
         public static void Create() {
             Console.WriteLine("Marque ?");
-            string marque = Console.ReadLine()!;
+            string marque = Console.ReadLine()!.ToLower();
 
             Console.WriteLine("Modele ?");
-            string modele = Console.ReadLine()!;
+            string modele = Console.ReadLine()!.ToLower();
 
             Console.WriteLine("Numero (entre 4 et 6 chiffres) ?");
             int numero = int.Parse(Console.ReadLine()!);
@@ -23,13 +24,13 @@ namespace App {
                 case "v":
                     Console.WriteLine("Puissance ?");
                     int puissance = int.Parse(Console.ReadLine()!);
-                    Vehicule voiture = new Vehicule(marque, modele, numero);
+                    Voiture voiture = new Voiture(marque, modele, numero, puissance);
                     listVehicules.Add(voiture);
                     break;
                 case "c":
                     Console.WriteLine("Poids ?");
-                    double poids = int.Parse(Console.ReadLine()!);
-                    Vehicule camion = new Vehicule(marque, modele, numero);
+                    int poids = int.Parse(Console.ReadLine()!);
+                    Camion camion = new Camion(marque, modele, numero, poids);
                     listVehicules.Add(camion);
                     break;
             }
@@ -69,7 +70,7 @@ namespace App {
 
         public static void ReadAllVehicule() {
             foreach(var Vehicule in listVehicules) {
-                Console.WriteLine(Vehicule);
+                Console.WriteLine(Vehicule.ToString());
             }
         }
 
@@ -101,7 +102,7 @@ namespace App {
         }
 
         public static void SortVehicule() {
-            Console.WriteLine("Trier par:\n 1- Marque alphabetique\n 2- Modele alphabetique\n 3- Numero croissant");
+            Console.WriteLine("Trier par:\n 1- Marque alphabetique\n 2- Modele alphabetique\n 3- Numero croissant\n !!!4- Poids croissant 5- Puissance croissante!!! nonfunctional");
             var choix = int.Parse(Console.ReadLine()!);
             switch (choix) { 
                 case 1:
@@ -122,10 +123,22 @@ namespace App {
                         Console.WriteLine(Vehicule);
                     }
                     break;
+                // case 4:
+                //     listVehicules = listVehicules.OrderBy(p => p.Poids).ToList();
+                //     foreach(var Vehicule in listVehicules) {
+                //         Console.WriteLine(Vehicule);
+                //     }
+                //     break;
+                // case 5:
+                //     listVehicules = listVehicules.OrderBy(p => p.Puissance).ToList();
+                //     foreach(var Vehicule in listVehicules) {
+                //         Console.WriteLine(Vehicule);
+                //     }
+                //     break;
             }
         }
         public static void FilterVehicule() {
-            Console.WriteLine("Filtrer par:\n 1- Marque \n 2- Modele\n 3- Numero");
+            Console.WriteLine("Filtrer par:\n 1- Marque \n 2- Modele\n 3- Numero\n !!!4- Poids 5- Puissance!!! nonfunctional");
             var choix = int.Parse(Console.ReadLine()!);
             switch (choix) { 
                 case 1:
@@ -146,10 +159,22 @@ namespace App {
                         Console.WriteLine("-----------------");
                     }
                     break;
+                // case 4:
+                //    foreach(var Vehicule in listVehicules.GroupBy(p=>p.Poids)) {
+                //         Console.WriteLine(Vehicule.Key + " " + string.Join("\n", Vehicule.ToList()));
+                //         Console.WriteLine("-----------------");
+                //     }
+                //     break;
+                // case 5:
+                //    foreach(var Vehicule in listVehicules.GroupBy(p=>p.Puissance)) {
+                //         Console.WriteLine(Vehicule.Key + " " + string.Join("\n", Vehicule.ToList()));
+                //         Console.WriteLine("-----------------");
+                //     }
+                //     break;
             }
         }
         public static void SaveVehicule() {
-            Console.WriteLine("Sauvegarder(S)\n Load un fichier json(L)");
+            Console.WriteLine("Sauvegarder(S)\n Importer un fichier json(L)");
             var choix = Console.ReadLine();
             switch (choix) {
                 case "S":
@@ -158,12 +183,14 @@ namespace App {
                     File.WriteAllText(fileName, jsonSTring);
                     break;
                 case "L":
+                    // nonfunctional !!!!!!!!!!!!!!!!!!!!!!!!!!!
                     Console.WriteLine("Entrez le nom de votre fichier .json (le mettre dans le dossier du projet App)");
                     var FileName = Console.ReadLine();
                     var fileContent = File.ReadAllText(FileName!);
-                    var liste = JsonSerializer.Deserialize<Vehicule>(fileContent);
-                    // listVehicules = liste; !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    var liste = JsonSerializer.Deserialize<List<Vehicule>>(fileContent);
+                    Console.WriteLine(string.Join("\n", liste!));
                     break;
+                // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             }
         }
     }

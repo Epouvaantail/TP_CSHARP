@@ -2,7 +2,7 @@
 namespace Classes {
     public class Camion : Vehicule {
         // public static string Test3 { get; set; } = "Test Camion";
-        public double Poids { get; set;}
+        public int Poids { get; set;}
 
         // Méthode Camion: constructor
         public Camion ( string marque, string modele , int numero, int poids) : base(marque, modele, numero) {

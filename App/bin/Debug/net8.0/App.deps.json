@@ -351,6 +351,7 @@
       },
       "TestApp/1.0.0": {
         "dependencies": {
+          "Classes": "1.0.0",
           "MSTest.TestAdapter": "3.0.4",
           "MSTest.TestFramework": "3.0.4",
           "Microsoft.NET.Test.Sdk": "17.6.0",

@@ -1,10 +1,28 @@
-namespace TestApp;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
+using Classes;
 
-[TestClass]
-public class UnitTest1
+namespace TestApp
 {
-    [TestMethod]
-    public void TestMethod1()
+    [TestClass]
+    public class UnitTest
     {
+
+          static List<Vehicule> listVehicules = new List<Vehicule>() {};
+        
+
+        [TestMethod]
+        public void createVehicule()
+        {
+            // Arrange
+            Camion testVehicule = new Camion ( "Scania" , "FUTZ" , 2340 , 33000);
+
+            // Act
+            listVehicules.Add(testVehicule);
+
+            // Assert
+            var vehicule = listVehicules;
+            CollectionAssert.Contains(vehicule, testVehicule);
+        }
     }
 }

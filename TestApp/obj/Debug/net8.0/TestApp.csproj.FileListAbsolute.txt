@@ -110,3 +110,6 @@ D:\Documents\Diginamic\TP\TP_CSHARP\TestApp\obj\Debug\net8.0\refint\TestApp.dll
 D:\Documents\Diginamic\TP\TP_CSHARP\TestApp\obj\Debug\net8.0\TestApp.pdb
 D:\Documents\Diginamic\TP\TP_CSHARP\TestApp\obj\Debug\net8.0\TestApp.genruntimeconfig.cache
 D:\Documents\Diginamic\TP\TP_CSHARP\TestApp\obj\Debug\net8.0\ref\TestApp.dll
+D:\Documents\Diginamic\TP\TP_CSHARP\TestApp\bin\Debug\net8.0\CoverletSourceRootsMapping_TestApp
+D:\Documents\Diginamic\TP\TP_CSHARP\TestApp\bin\Debug\net8.0\Classes.dll
+D:\Documents\Diginamic\TP\TP_CSHARP\TestApp\bin\Debug\net8.0\Classes.pdb

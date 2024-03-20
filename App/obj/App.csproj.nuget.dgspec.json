@@ -138,7 +138,11 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "D:\\Documents\\Diginamic\\TP\\TP_CSHARP\\Classes\\Classes.csproj": {
+                "projectPath": "D:\\Documents\\Diginamic\\TP\\TP_CSHARP\\Classes\\Classes.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
