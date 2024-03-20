@@ -44,7 +44,7 @@ namespace App {
                 case 1:
                     Console.WriteLine("Entrez une marque");
                     var marque = Console.ReadLine();
-                    var TempMa = listVehicules.Where(p => p._marque == marque).ToList();
+                    var TempMa = listVehicules.Where(p => p.marque == marque).ToList();
                     foreach(var Vehicule in TempMa) {
                         Console.WriteLine(Vehicule);
                     }
@@ -52,7 +52,7 @@ namespace App {
                 case 2:
                     Console.WriteLine("Entrez un modele");
                     var modele = Console.ReadLine();
-                    var TempMo = listVehicules.Where(p => p._marque == modele).ToList();
+                    var TempMo = listVehicules.Where(p => p.marque == modele).ToList();
                     foreach(var Vehicule in TempMo) {
                         Console.WriteLine(Vehicule);
                     }
@@ -60,7 +60,7 @@ namespace App {
                 case 3:
                     Console.WriteLine("Entrez un numero");
                     var numero = Console.ReadLine();
-                    var TempNu = listVehicules.Where(p => p._marque == numero).ToList();
+                    var TempNu = listVehicules.Where(p => p.marque == numero).ToList();
                     foreach(var Vehicule in TempNu) {
                         Console.WriteLine(Vehicule);
                     }
@@ -77,7 +77,7 @@ namespace App {
         public static void UpdateVehicule() {
             Console.WriteLine("Numero du vehicule à supprimer");
             var choix = int.Parse(Console.ReadLine()!);
-            var updateVehicule = listVehicules.Find(v => v._numero == choix);
+            var updateVehicule = listVehicules.Find(v => v.numero == choix);
             if (updateVehicule != null) {
                 Console.WriteLine("Entrez le nouveau modele");
                 updateVehicule.Modele = Console.ReadLine()!;
@@ -91,7 +91,7 @@ namespace App {
         public static void DeleteVehicule() {
             Console.WriteLine("Numero du vehicule à supprimer");
             var choix = int.Parse(Console.ReadLine()!);
-            var deleteVehicule = listVehicules.Find(v => v._numero == choix);
+            var deleteVehicule = listVehicules.Find(v => v.numero == choix);
             if (deleteVehicule != null) {
                 listVehicules.Remove(deleteVehicule);
                 Console.WriteLine("Véhicule supprimé.");
@@ -102,11 +102,11 @@ namespace App {
         }
 
         public static void SortVehicule() {
-            Console.WriteLine("Trier par:\n 1- Marque alphabetique\n 2- Modele alphabetique\n 3- Numero croissant\n !!!4- Poids croissant 5- Puissance croissante!!! nonfunctional");
+            Console.WriteLine("Trier par:\n 1- Marque alphabetique\n 2- Modele alphabetique\n 3- Numero croissant"); //4- Poids croissant 5- Puissance croissante nonfunctional
             var choix = int.Parse(Console.ReadLine()!);
             switch (choix) { 
                 case 1:
-                    listVehicules = listVehicules.OrderBy(p => p._marque).ToList();
+                    listVehicules = listVehicules.OrderBy(p => p.marque).ToList();
                     foreach(var Vehicule in listVehicules) {
                         Console.WriteLine(Vehicule);
                     }
@@ -118,7 +118,7 @@ namespace App {
                     }
                     break;
                 case 3:
-                    listVehicules = listVehicules.OrderBy(p => p._numero).ToList();
+                    listVehicules = listVehicules.OrderBy(p => p.numero).ToList();
                     foreach(var Vehicule in listVehicules) {
                         Console.WriteLine(Vehicule);
                     }
@@ -138,11 +138,11 @@ namespace App {
             }
         }
         public static void FilterVehicule() {
-            Console.WriteLine("Filtrer par:\n 1- Marque \n 2- Modele\n 3- Numero\n !!!4- Poids 5- Puissance!!! nonfunctional");
+            Console.WriteLine("Filtrer par:\n 1- Marque \n 2- Modele\n 3- Numero"); // 4- Poids 5- Puissance nonfunctional
             var choix = int.Parse(Console.ReadLine()!);
             switch (choix) { 
                 case 1:
-                    foreach(var Vehicule in listVehicules.GroupBy(p=>p._marque)) {
+                    foreach(var Vehicule in listVehicules.GroupBy(p=>p.marque)) {
                         Console.WriteLine(Vehicule.Key + " " + string.Join("\n", Vehicule.ToList()));
                         Console.WriteLine("-----------------");
                     }
@@ -154,7 +154,7 @@ namespace App {
                     }
                     break;
                 case 3:
-                   foreach(var Vehicule in listVehicules.GroupBy(p=>p._numero)) {
+                   foreach(var Vehicule in listVehicules.GroupBy(p=>p.numero)) {
                         Console.WriteLine(Vehicule.Key + " " + string.Join("\n", Vehicule.ToList()));
                         Console.WriteLine("-----------------");
                     }
@@ -174,7 +174,7 @@ namespace App {
             }
         }
         public static void SaveVehicule() {
-            Console.WriteLine("Sauvegarder(S)\n Importer un fichier json(L)");
+            Console.WriteLine("Sauvegarder(S)\n Importer un fichier json(I)");
             var choix = Console.ReadLine();
             switch (choix) {
                 case "S":
@@ -182,15 +182,13 @@ namespace App {
                     string jsonSTring = JsonSerializer.Serialize(listVehicules);
                     File.WriteAllText(fileName, jsonSTring);
                     break;
-                case "L":
-                    // nonfunctional !!!!!!!!!!!!!!!!!!!!!!!!!!!
-                    Console.WriteLine("Entrez le nom de votre fichier .json (le mettre dans le dossier du projet App)");
+                case "I":
+                    Console.WriteLine("Entrez le nom de votre fichier .json (le mettre dans le dossier du projet App, exemple de nom: 'vehicle.json')");
                     var FileName = Console.ReadLine();
                     var fileContent = File.ReadAllText(FileName!);
                     var liste = JsonSerializer.Deserialize<List<Vehicule>>(fileContent);
-                    Console.WriteLine(string.Join("\n", liste!));
+                    listVehicules = liste!;
                     break;
-                // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             }
         }
     }

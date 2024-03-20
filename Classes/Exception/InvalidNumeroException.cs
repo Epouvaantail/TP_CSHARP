@@ -9,7 +9,7 @@ namespace Classes.Exceptions
         {
             get
             {
-                return "Le numero doit être comprit entre 4 et 6 chiffres";
+                return "La longueur du numero doit être comprit entre 4 et 6 chiffres";
             }
         }
     }

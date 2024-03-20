@@ -3,12 +3,12 @@
 namespace Classes {
     public class Vehicule {
         // public static string Test { get; set; } = "Test vehicule";
-        private string Marque;
+        private string? Marque;
         public string Modele { get; set; }
         private int Numero;
 
-        public string _marque {
-            get { return Marque; }
+        public string marque {
+            get { return Marque!; }
             set {
                 // check if there is a digit in the Marque
                 foreach ( char c in value) {
@@ -23,7 +23,7 @@ namespace Classes {
         }
         
 
-        public int _numero {
+        public int numero {
             get { return Numero; }
             set {
                 // check if the value length is in between 4 and 6 number and if its a number
@@ -37,10 +37,10 @@ namespace Classes {
         }
 
         // Méthode vehicule: constructor
-        public Vehicule(string marque, string modele, int numero) {
-            Marque = marque;
-            Modele = modele;
-            Numero = numero;
+        public Vehicule(string _marque, string _modele, int _numero) {
+            marque = _marque;
+            Modele = _modele;
+            numero = _numero;
         }
 
         // methode ToString
